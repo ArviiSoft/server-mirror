@@ -1,0 +1,40 @@
+name: Inactive issues and pull requests
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: stale
+  cancel-in-progress: false
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/stale@v11
+        with:
+          days-before-issue-stale: 60
+          days-before-issue-close: 30
+          days-before-pr-stale: 90
+          days-before-pr-close: -1
+          stale-issue-label: stale
+          stale-pr-label: stale
+          exempt-issue-labels: security,bug,pinned,keep-open
+          exempt-pr-labels: security,bug,pinned,keep-open
+          stale-issue-message: >
+            This issue has had no activity for 60 days. Please share an update if it
+            still applies. Without further activity, it will close in 30 days.
+          stale-pr-message: >
+            This pull request has had no activity for 90 days. Please share an
+            update if work is continuing. It will not be closed automatically.
+          close-issue-message: >
+            This issue was closed after 30 more days without activity.
+            If the problem still occurs on the latest revision, please reopen it
+            or submit an updated report.

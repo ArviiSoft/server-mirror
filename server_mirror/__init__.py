@@ -1,0 +1,1 @@
+"""Server Mirror: preview and copy Discord server structure."""

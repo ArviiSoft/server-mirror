@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a reproducible problem with Server Mirror.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Never include account tokens or private server data. Report vulnerabilities
+        using the security policy instead of a public issue.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version, discord.py-self version, and project revision.
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Failure phase
+      options:
+        - Setup or login
+        - Preview or validation
+        - Confirmed copy
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include sanitized commands and relevant server structure.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: errors
+    attributes:
+      label: Sanitized error output
+      description: Remove credentials, identifying information, and private content.
+      render: text
