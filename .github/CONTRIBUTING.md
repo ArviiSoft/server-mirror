@@ -21,7 +21,8 @@ Create a descriptive branch and run these checks before opening a pull request:
 ```bash
 python -m ruff check .
 python -m ruff format --check .
-python -m unittest discover -s tests -v
+python -m server_mirror --help
+python -m server_mirror --demo
 python -m pip_audit -r requirements/runtime.txt
 ```
 
@@ -41,7 +42,7 @@ Live testing must use authorized, disposable servers and an explicitly confirmed
 
 ## Automation
 
-- **Python CI:** lint and formatting, Linux tests on Python 3.10–3.14, and Windows tests on Python 3.14.
+- **Python CI:** lint and formatting, plus command-line startup and offline demo checks on Python 3.10–3.14 on Linux and Python 3.14 on Windows.
 - **Dependency audit:** checks runtime dependencies on pushes, pull requests, manual runs, and a weekly schedule.
 - **Dependabot:** weekly pip and GitHub Actions update checks.
 - **Inactive discussions:** issues are marked stale after 60 days and closed after another 30; pull requests are marked after 90 days and are not automatically closed. The labels `security`, `bug`, `pinned`, and `keep-open` exempt issues and pull requests.

@@ -26,10 +26,10 @@ from rich.table import Table
 from rich.text import Text
 from rich.theme import Theme
 
-from copy_recovery import CopyIssue
+from server_mirror.core.recovery import CopyIssue
 
 if TYPE_CHECKING:
-    from serverclone import Clone
+    from server_mirror.core.clone import Clone
 
 
 THEME = Theme(
