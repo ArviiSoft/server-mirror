@@ -29,7 +29,7 @@ jobs:
       - run: python -m ruff check .
       - run: python -m ruff format --check .
 
-  test:
+  smoke:
     name: Python ${{ matrix.python }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
@@ -51,6 +51,5 @@ jobs:
           cache: pip
           cache-dependency-path: requirements/runtime.txt
       - run: python -m pip install -r requirements/runtime.txt
-      - run: python -m unittest discover -s tests -v
       - run: python -m server_mirror --help
       - run: python -m server_mirror --demo

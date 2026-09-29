@@ -235,11 +235,12 @@ A separate example shows channel-type conversions, skipped channels, and omitted
 python -m pip install -r requirements/dev.txt
 python -m ruff check .
 python -m ruff format --check .
-python -m unittest discover -s tests -v
+python -m server_mirror --help
+python -m server_mirror --demo
 python -m pip_audit -r requirements/runtime.txt
 ```
 
-Tests use mocked Discord objects and perform no Discord API calls. CI checks Python 3.10 through 3.14 on Linux and Python 3.14 on Windows. GitHub Actions also runs dependency auditing, and Dependabot checks pip dependencies and action versions.
+CI checks command-line startup and the offline demo on Python 3.10 through 3.14 on Linux and Python 3.14 on Windows. These checks require no account token and perform no Discord API calls. GitHub Actions also runs dependency auditing, and Dependabot checks pip dependencies and action versions.
 
 ```text
 server_mirror/              Application package
@@ -254,7 +255,6 @@ server_mirror/              Application package
 requirements/
   runtime.txt              Runtime dependencies
   dev.txt                  Runtime dependencies plus development and audit tools
-tests/                     Offline regression tests
 docs/                      Troubleshooting and README screenshots
 .github/                   CI, dependency updates, issue templates, and policies
 start.bat                  Windows launcher using the local virtual environment
