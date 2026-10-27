@@ -2,6 +2,14 @@
 
 Notable changes to Server Mirror are documented here, following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Changes remain unreleased until a release is tagged.
 
+## [Unreleased]
+
+### Fixed
+
+- Added an explicit preview/copy/exit menu when `start.bat` is opened without arguments, so double-click startup no longer silently runs only a preview. Copy mode still requires destination-ID confirmation.
+- Kept the Windows result or setup-error message visible until a key is pressed after no-argument startup. Command-line invocations with arguments still return directly and preserve the program's exit code.
+- Documented why `PREVIEW COMPLETE` makes no changes and how to start a confirmed copy.
+
 ## [v1.0.0] - 29.09.2026
 
 ### Added

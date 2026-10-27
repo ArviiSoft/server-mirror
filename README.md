@@ -91,6 +91,18 @@ See Discord's [channel obfuscation announcement](https://docs.discord.com/develo
 
 ## Usage
 
+### Windows: double-click startup
+
+Double-click `start.bat` and select a mode before entering the server IDs and token:
+
+- **1. Preview only** checks the servers and shows the plan without changing anything.
+- **2. Copy** shows the plan and asks you to type the destination server ID before replacing its structure. Review any permission-omission prompts as well.
+- **3. Exit** closes the launcher without connecting.
+
+After a preview, copy, cancellation, or error, the launcher waits for a key so you can read the result. `PREVIEW COMPLETE` means only a preview ran; to copy, start again and select **2**.
+
+Running `start.bat` with arguments skips the menu and final keypress, preserves the program's exit code, and uses preview mode unless `--apply` is supplied. `python -m server_mirror` also remains preview-only by default.
+
 ### Terminal interface
 
 The terminal includes source and destination cards, a copy summary, and a live progress

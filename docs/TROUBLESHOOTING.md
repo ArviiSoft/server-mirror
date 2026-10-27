@@ -80,9 +80,17 @@ If you decline or input ends, copying stops and the panel states whether destina
 
 HTTP status and Discord error codes are reported without raw response bodies. Include these codes in a sanitized bug report. A fresh destination is usually easier to validate than a partially modified one.
 
-## Windows launcher exits immediately
+## `PREVIEW COMPLETE` appears but nothing was copied
 
-Create `.venv` and install dependencies as shown in the README. Run `start.bat` from PowerShell or Command Prompt to keep its output visible. The launcher intentionally runs once and returns the Python exit code.
+This is a successful preview, not a crash or an invalid-token error. Preview checks the servers and shows the plan without making changes. Yellow role/member overwrite notes describe permissions that cannot be copied; they do not turn preview mode into copy mode.
+
+Double-click `start.bat` and choose **2. Copy**, then enter the server IDs and token. Review any omission prompts and the plan, and type the destination server ID when asked to confirm the replacement. From an existing terminal, you can also run `.\start.bat --apply`; missing server IDs are prompted.
+
+## Windows launcher closes before the result can be read
+
+When started without arguments, `start.bat` now offers a mode menu and waits for a key after the program ends, including errors. If `.venv` is missing, it keeps the setup instructions visible too. Create `.venv` and install dependencies as shown in the README.
+
+When passing arguments such as `--apply`, `--demo`, or `--help`, run `start.bat` from PowerShell or Command Prompt. Those invocations skip the menu and keypress wait and return the Python exit code directly.
 
 ## Python cannot find `server_mirror`
 
